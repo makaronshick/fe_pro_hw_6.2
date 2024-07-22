@@ -6,15 +6,30 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-// 233/8=29.125
-const array = [1, 28, { prop: 20 }, null, 65, undefined, 0, '123456', NaN, 11, 'hello', 91, 25, [15, 'ololo'], 12]; 
+// 234/8=29.25
+const array = [1, 28, { prop: 20 }, null, 65.6, undefined, 0, '123456', NaN, 11, 'hello', 91, 25.4, [15, 'ololo'], 12];
+
+// 9/3=3
+// const array = [5, { prop: 20 }, null, undefined, 2.5, '123456', NaN, 1.5, 'hello', [15, 'ololo']];
+
+function isIntOrFloat(item) {
+  if (
+    Number.isInteger(item) || 
+    (Number.isFinite(item) && !Number.isInteger(item))
+  ) {
+
+    return true;
+  }
+
+  return false;
+}
 
 function getArithmeticMean(array) {
 
   const numberValues = [];
   for (const item of array) {
 
-    if (Number.isInteger(item)) {
+    if (isIntOrFloat(item)) {
 
       numberValues.push(item);
     }
